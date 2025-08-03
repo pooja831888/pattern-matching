@@ -1,0 +1,30 @@
+// User function Template for Java
+
+class Solution {
+    static int repeatedStringMatch(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+
+        // Keep adding 'a' until length of sb >= length of b
+        while (sb.length() < b.length()) {
+            sb.append(a);
+            count++;
+        }
+
+        // Check if b is already a substring
+        if (sb.toString().contains(b)) {
+            return count;
+        }
+
+        // Try one more time (edge overlap cases)
+        sb.append(a);
+        count++;
+        if (sb.toString().contains(b)) {
+            return count;
+        }
+
+        // Not found
+        return -1;
+        
+    }
+}
